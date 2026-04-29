@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Momento de Paz - Mi Cafetería</title>
+    <style>
+        /* Colores: Crema (#fcf9f2), Verde Salvia (#8ca38a), Café Suave (#5e503f) */
+        body { 
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
+            background-color: #fcf9f2; /* Fondo crema muy suave */
+            margin: 0; 
+            color: #5e503f; /* Texto café oscuro suave */
+            line-height: 1.6;
+        }
+
+        header { 
+            padding: 60px 20px;
+            background: linear-gradient(to bottom, #f3ede0, #fcf9f2);
+        }
+
+        h1 { 
+            font-weight: 300; 
+            font-size: 2.5em; 
+            letter-spacing: 2px;
+            margin: 0;
+            color: #8ca38a; /* Verde salvia para el título */
+        }
+
+        p.subtitle {
+            font-style: italic;
+            color: #9e8e7d;
+            margin-top: 10px;
+        }
+
+        .contenedor { 
+            display: flex; 
+            justify-content: center; 
+            flex-wrap: wrap; 
+            gap: 40px; 
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .producto { 
+            background: white; 
+            border-radius: 30px; /* Bordes muy redondeados para suavidad */
+            width: 280px; 
+            padding: 20px; 
+            box-shadow: 0 10px 30px rgba(140, 163, 138, 0.1); /* Sombra verdosa suave */
+            transition: all 0.4s ease;
+            border: 1px solid #f0ede4;
+        }
+
+        .producto:hover { 
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(140, 163, 138, 0.2);
+        }
+
+        .producto img { 
+            width: 100%; 
+            border-radius: 20px; 
+            height: 200px; 
+            object-fit: cover;
+            filter: sepia(20%); /* Toque cálido a las fotos */
+        }
+
+        h3 { margin: 20px 0 10px; font-weight: 400; font-size: 1.4em; }
+
+        .precio { 
+            font-size: 1.1em; 
+            color: #8ca38a; 
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .btn-ws { 
+            background-color: #8ca38a; /* Botón verde suave, no chillón */
+            color: white; 
+            text-decoration: none; 
+            padding: 12px; 
+            border-radius: 25px; 
+            display: block; 
+            font-weight: 400;
+            letter-spacing: 1px;
+            transition: background 0.3s;
+        }
+
+        .btn-ws:hover { 
+            background-color: #7a8f78; 
+        }
+
+        footer { margin-top: 50px; padding: 40px; font-size: 0.8em; color: #b5a491; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>MOMENTO DE PAZ</h1>
+        <p class="subtitle">Disfruta el silencio, saborea el momento.</p>
+    </header>
+
+    <div class="contenedor">
+        {% for p in lista %}
+        <div class="producto">
+            <img src="{{ url_for('static', filename=p.imagen) }}" alt="{{ p.nombre }}">
+            <h3>{{ p.nombre }}</h3>
+            <p class="precio">${{ p.precio }}</p>
+            <a href="https://wa.me/56996091997?text=me gustaría disfrutar de un {{ p.nombre }}" class="btn-ws" target="_blank">
+                Pedir con calma
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+
+    <footer>
+        Hecho con cariño para una tarde tranquila
+    </footer>
+</body>
+</html>
