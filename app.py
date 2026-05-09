@@ -9,8 +9,6 @@ productos = [
     {"nombre": "Cafe de Grano", "precio": 5000, "imagen": "cafe.webp"},
     {"nombre": "Te Organico", "precio": 3500, "imagen": "teorganico.webp"},
     {"nombre": "Muffin Arandano", "precio": 1500, "imagen": "muffi.webp"},
-    {"nombre": "Te organico", "precio": 1500, "imagen": "teorganico.webp"},
-    {"nombre": "Te organico", "precio": 1500, "imagen": "teorganico.webp"},
     {"nombre": "Te organico", "precio": 1500, "imagen": "teorganico.webp"}
 ]
 
