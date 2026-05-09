@@ -1,39 +1,47 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Momento de Paz - Mi Cafeteria</title>
 
     <!-- ICONOS PARA CELULAR Y NAVEGADOR -->
+    <!-- todo comentario en HTML en piesa <! y termina con -->
+    <!-- Define la imagen que aparece en la pestaña de arriba en el navegador (Favicon) -->
     <link rel="icon" type="image/jpg" href="{{ url_for('static', filename='cafe_app.jpg') }}">
+    <!-- Versión de respaldo del ícono para asegurar que se vea en navegadores antiguos-->
     <link rel="shortcut icon" href="{{ url_for('static', filename='cafe_app.jpg') }}">
+    <!-- El ícono que se usará si el usuario guarda tu página como acceso directo en la pantalla de su iPhone -->
     <link rel="apple-touch-icon" href="{{ url_for('static', filename='cafe_app.jpg') }}">
+    <!-- Indica que el sitio puede abrirse como una aplicación a pantalla completa en Android -->
     <meta name="mobile-web-app-capable" content="yes">
+    <!-- Indica que el sitio puede abrirse como una aplicación a pantalla completa en iOS (iPhone) -->
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Cambia el color de la barra de navegación del celular para que combine con el fondo crema de tu web -->
     <meta name="theme-color" content="#fcf9f2">
 
     <style>
-        body { 
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
-            background-color: #fcf9f2; 
-            margin: 0; 
-            color: #5e503f; 
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f8fcf2;
+            margin: 0;
+            color: #455e3f;
             line-height: 1.6;
         }
 
-        header { 
+        header {
             padding: 60px 20px;
             background: linear-gradient(to bottom, #f3ede0, #fcf9f2);
-            text-align: center; 
+            text-align: center;
         }
 
-        h1 { 
-            font-weight: 300; 
-            font-size: 2.5em; 
+        h1 {
+            font-weight: 300;
+            font-size: 2.5em;
             letter-spacing: 2px;
             margin: 0;
-            color: #8ca38a; 
+            color: #8ca38a;
         }
 
         p.subtitle {
@@ -42,68 +50,79 @@
             margin-top: 10px;
         }
 
-        .contenedor { 
-            display: flex; 
-            justify-content: center; 
-            flex-wrap: wrap; 
-            gap: 40px; 
+        .contenedor {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
             padding: 20px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        .producto { 
-            background: white; 
-            border-radius: 30px; 
-            width: 280px; 
-            padding: 20px; 
-            box-shadow: 0 10px 30px rgba(140, 163, 138, 0.1); 
+        .producto {
+            background: white;
+            border-radius: 30px;
+            width: 280px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(140, 163, 138, 0.1);
             transition: all 0.4s ease;
             border: 1px solid #f0ede4;
             text-align: center;
         }
 
-        .producto:hover { 
+        .producto:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 35px rgba(140, 163, 138, 0.2);
         }
 
-        .producto img { 
-            width: 100%; 
-            border-radius: 20px; 
-            height: 200px; 
+        .producto img {
+            width: 100%;
+            border-radius: 20px;
+            height: 200px;
             object-fit: cover;
-            filter: sepia(20%); 
+            filter: sepia(20%);
         }
 
-        h3 { margin: 20px 0 10px; font-weight: 400; font-size: 1.4em; }
+        h3 {
+            margin: 20px 0 10px;
+            font-weight: 400;
+            font-size: 1.4em;
+        }
 
-        .precio { 
-            font-size: 1.1em; 
-            color: #8ca38a; 
+        .precio {
+            font-size: 1.1em;
+            color: #8ca38a;
             margin-bottom: 20px;
             letter-spacing: 1px;
         }
 
-        .btn-ws { 
-            background-color: #8ca38a; 
-            color: white; 
-            text-decoration: none; 
-            padding: 12px; 
-            border-radius: 25px; 
-            display: block; 
+        .btn-ws {
+            background-color: #8ca38a;
+            color: white;
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 25px;
+            display: block;
             font-weight: 400;
             letter-spacing: 1px;
             transition: background 0.3s;
         }
 
-        .btn-ws:hover { 
-            background-color: #7a8f78; 
+        .btn-ws:hover {
+            background-color: #7a8f78;
         }
 
-        footer { margin-top: 50px; padding: 40px; font-size: 0.8em; color: #b5a491; text-align: center; }
+        footer {
+            margin-top: 50px;
+            padding: 40px;
+            font-size: 0.8em;
+            color: #b5a491;
+            text-align: center;
+        }
     </style>
 </head>
+
 <body>
     <header>
         <h1>MOMENTO DE PAZ</h1>
@@ -116,7 +135,8 @@
             <img src="{{ url_for('static', filename=p.imagen) }}" alt="{{ p.nombre }}">
             <h3>{{ p.nombre }}</h3>
             <p class="precio">${{ p.precio }}</p>
-            <a href="https://wa.me/56996091997?text=Me gustaria disfrutar de un {{ p.nombre }}" class="btn-ws" target="_blank">
+            <a href="https://wa.me/56996091997?text=Me gustaria disfrutar de un {{ p.nombre }}" class="btn-ws"
+                target="_blank">
                 Pedir con calma
             </a>
         </div>
@@ -127,4 +147,5 @@
         Hecho con carino para una tarde tranquila
     </footer>
 </body>
+
 </html>
