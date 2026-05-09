@@ -8,12 +8,17 @@ app = Flask(__name__)
 productos = [
     {"nombre": "Cafe de Grano", "precio": 5000, "imagen": "cafe.webp"},
     {"nombre": "Te Organico", "precio": 3500, "imagen": "teorganico.webp"},
-    {"nombre": "Muffin Arandano", "precio": 1500, "imagen": "muffi.webp"}
+    {"nombre": "Muffin Arandano", "precio": 1500, "imagen": "muffi.webp"},
+    {"nombre": "Te organico", "precio": 1500, "imagen": "teorganico.webp"},
+    {"nombre": "Te organico", "precio": 1500, "imagen": "teorganico.webp"},
+    {"nombre": "Te organico", "precio": 1500, "imagen": "teorganico.webp"}
 ]
+
 
 @app.route('/')
 def home():
     return render_template('index.html', lista=productos)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
